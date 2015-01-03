@@ -5,10 +5,10 @@
   - if Post.count == 0
     %h1 Posts go here
   - else
-    - Post.all.each do |post|
+    - Post.order('published_at desc').each do |post|
       %h2
         = post.title
-        %small= post.created_at.strftime('%-d %B %Y')
+        %small= post.published_at.strftime('%-d %B %Y')
       %article= post.content
 %footer
   - if me?
