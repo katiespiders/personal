@@ -1,0 +1,10 @@
+= form_tag signin_path do
+  %table
+    %tr
+      %td= label_tag 'user[name]', 'Username'
+      %td= text_field_tag 'user[name]'
+    %tr
+      %td= label_tag 'user[password]', 'Password'
+      %td= password_field_tag 'user[password]'
+    %tr
+      %td= submit_tag "sign in"

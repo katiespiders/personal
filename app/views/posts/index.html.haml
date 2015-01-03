@@ -1,0 +1,17 @@
+%header
+  - if me?
+    = link_to 'make post', new_post_path
+%body
+  - if Post.count == 0
+    %h1 Posts go here
+  - else
+    - Post.all.each do |post|
+      %h2
+        = post.title
+        %small= post.created_at.strftime('%-d %B %Y')
+      %article= post.content
+%footer
+  - if me?
+    = link_to 'sign out', signout_path
+  - else
+    = link_to 'sign in', signin_path
