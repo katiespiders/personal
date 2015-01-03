@@ -7,11 +7,14 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Post.delete_all
-
 10.times do
   Post.create(
     title: Faker::Lorem.sentence,
-    content: Faker::Lorem.paragraphs.join("\n"),
-    published_at: Faker::Time.backward(30)
+    content: Faker::Lorem.paragraph(10),
+    published_at: Faker::Time.backward(30),
+    published: true
   )
 end
+
+User.delete_all
+User.create(name: 'katie', password: 'password')

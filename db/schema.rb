@@ -11,16 +11,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150103013058) do
+ActiveRecord::Schema.define(version: 20150103040237) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "concepts", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "concepts_and_resources", id: false, force: true do |t|
+    t.integer "concept_id"
+    t.integer "resource_id"
+  end
 
   create_table "posts", force: true do |t|
     t.string   "title"
     t.text     "content"
     t.boolean  "published"
     t.datetime "published_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "resources", force: true do |t|
+    t.string   "title"
+    t.string   "author"
+    t.string   "url"
+    t.datetime "retrieved_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
