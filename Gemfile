@@ -42,6 +42,7 @@ gem 'bcrypt', '~> 3.1.7'
 group :development, :test do
   gem "rspec-rails", "~> 3.1.0"
   gem "dotenv-rails", "~> 1.0.2"
+  gem "factory_girl_rails", "~> 4.5.0"
 end
 
 group :development do
