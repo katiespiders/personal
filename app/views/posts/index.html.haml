@@ -6,10 +6,7 @@
     %h1 Posts go here
   - else
     - Post.order('published_at desc').each do |post|
-      %h2
-        = post.title
-        %small= post.published_at.strftime('%-d %B %Y')
-      %article= post.content
+      = preview(post)
 %footer
   - if me?
     = link_to 'sign out', signout_path
