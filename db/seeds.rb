@@ -10,9 +10,9 @@ Post.delete_all
 10.times do
   Post.create(
     title: Faker::Lorem.sentence,
-    content: Faker::Lorem.paragraph(10),
+    content: Faker::Lorem.paragraphs(10, true).join("\n"),
     published_at: Faker::Time.backward(30),
-    published: true
+    published?: true
   )
 end
 
