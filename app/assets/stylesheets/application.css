@@ -14,6 +14,10 @@
  *= require_self
  */
 
-.preview-div {
+header, footer {
   padding: 10px 5%;
-}
+  }
+
+.preview-div {
+  padding: 0 5% 10px 5%;
+  }
