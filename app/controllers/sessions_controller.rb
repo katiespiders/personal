@@ -2,17 +2,19 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by(name: username)
-    if user.authenticate(password)
+    unless user
+      render :new, notice: "who are you?"
+    elsif user.authenticate(password)
       session[:current_user] = user.id
-      redirect_to root_path, notice: "You're in, go nuts"
+      redirect_to root_path, notice: "you're in, go nuts"
     else
-      render :new, notice: "Fail"
+      render :new, notice: "fail"
     end
   end
 
   def destroy
     session[:current_user] = nil
-    redirect_to root_path, notice: "Peace"
+    redirect_to root_path, notice: "peace out"
   end
 
   private
