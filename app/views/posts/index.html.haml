@@ -3,9 +3,9 @@
     = link_to 'make post', new_post_path
 %body
   - if Post.count == 0
-    %h1 Posts go here
+    %h1 posts go here
   - else
-    - Post.order('published_at desc').each do |post|
+    - Post.sort.each do |post|
       = make_preview(post)
 %footer
   - if me?
