@@ -10,7 +10,8 @@ RSpec.describe SessionsController, :type => :controller do
     }
   describe 'signin' do
     it 'saves session id on successful signin' do
-      
+    end
+
   end
 
 end
