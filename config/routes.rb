@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   root  'posts#index'
   resources :posts
+  resources :snippets
 
   get   'signin',       to: 'sessions#new',     as: :signin_form
   post  'signin',       to: 'sessions#create',  as: :signin
