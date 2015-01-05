@@ -18,8 +18,7 @@ module PostsHelper
     end
 
     def timestamp
-      format = '%-d %B %Y'
-      @post.published? ? @post.published_at.strftime(format) : @post.updated_at.strftime(format)
+      @post.sort_timestamp.strftime('%-d %B %Y')
     end
 
     def admin_links
