@@ -1,12 +1,19 @@
 module PostsHelper
 
-  def make_preview(post)
+  def headline(post)
     @post = post
 
-    html = "<div class='preview-div'><h2>#{link_to @post.title, post_path(@post.id)} "
+    html = "<h2>#{link_to @post.title, post_path(@post.id)} "
     html += "<small>#{timestamp} #{admin_links}</small></h2>"
+    html.html_safe
+  end
+
+  def preview(post)
+    @post = post
+
+    html = "<div class='preview-div'>#{headline(post)}"
     html += "<article class='preview-article'>#{content_preview}</article>"
-    html += "<article class='full'>#{@post.content}</article>"
+    html += "<article class='full-article'>#{@post.content}</article>"
     html += "</div>"
     html.html_safe
   end
@@ -18,7 +25,7 @@ module PostsHelper
     end
 
     def timestamp
-      @post.sort_timestamp.strftime('%-d %B %Y')
+      @post.timestamp.strftime('%-d %B %Y')
     end
 
     def admin_links

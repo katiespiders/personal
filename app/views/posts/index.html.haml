@@ -1,12 +1,12 @@
 %header
   - if me?
     = link_to 'make post', new_post_path
-%body
+#container
   - if Post.count == 0
     %h1 posts go here
   - else
     - Post.sort.each do |post|
-      = make_preview(post)
+      = preview(post)
 %footer
   - if me?
     = link_to 'sign out', signout_path

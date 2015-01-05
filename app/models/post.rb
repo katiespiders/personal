@@ -3,10 +3,10 @@ class Post < ActiveRecord::Base
   validates :content, presence: true
 
   def self.sort
-    all.to_a.sort_by{ |post| post.sort_timestamp }.reverse
+    all.to_a.sort_by{ |post| post.timestamp }.reverse
   end
 
-  def sort_timestamp
+  def timestamp
     published? ? published_at : updated_at
   end
 end

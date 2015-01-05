@@ -2,11 +2,7 @@
   %title= @post.title
 
 %body
-  %h1
-    = @post.title
-    %small
-      = @post.published_at.strftime('%-d %B %Y')
-      = link_to 'edit', edit_post_path(@post.id)
-      = link_to 'delete', post_path(@post.id), method: :delete
+  #container
+    = headline(@post)
 
-  %article= @post.content
+    %article= @post.content
