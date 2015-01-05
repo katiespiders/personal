@@ -1,19 +1,28 @@
 module PostsHelper
 
-  def preview(post)
+  def make_preview(post)
+    @post = post
 
-    html = "<h2>#{link_to post.title, post_path(post.id)} "
-    html += "<small>#{post.timestamp}</small></h2>"
-    html += "<article class='preview'>#{content_preview(post)}</article>"
-    html += "<article class='full'>#{post.content}</article>"
+    html = "<div class='preview-div'><h2>#{link_to @post.title, post_path(@post.id)} "
+    html += "<small>#{timestamp} #{admin_links}</small></h2>"
+    html += "<article class='preview-article'>#{content_preview}</article>"
+    html += "<article class='full'>#{@post.content}</article>"
+    html += "</div>"
     html.html_safe
-
   end
 
   private
 
-    def content_preview(post)
-      post.content.length < 500 ? post.content : /\A.{500}\S*/m.match(post.content).to_s + " ... "
+    def content_preview
+      @post.content.length < 500 ? @post.content : /\A.{500}\S*/m.match(@post.content).to_s + " ... "
     end
 
+    def timestamp
+      format = '%-d %B %Y'
+      @post.published? ? @post.published_at.strftime(format) : @post.updated_at.strftime(format)
+    end
+
+    def admin_links
+      "#{link_to 'edit', edit_post_path(@post)} #{link_to 'delete', post_path(@post), method: :delete}" if me?
+    end
 end
