@@ -5,7 +5,7 @@
   - if Post.count == 0
     %h1 posts go here
   - else
-    - Post.sort.each do |post|
+    - Post.sort_desc.each do |post|
       = preview(post)
 %footer
   - if me?
