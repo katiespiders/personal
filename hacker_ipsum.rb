@@ -1,26 +1,49 @@
 class HackerIpsum
-  def hacker_sentence
-    hacker_sentences(1)
+
+  def post
+    {
+      title: sentence,
+      content: sentences(100),
+      published?: published,
+      published_at: @published ? timestamp : nil,
+      updated_at: timestamp,
+      created_at: earlier
+    }
   end
 
-  def hacker_sentences(n)
-    l33t = ""
-    n.times { l33t += "#{Faker::Hacker.say_something_smart} " }
-    l33t
+  def snippet
+    {
+      content: trimmed,
+      updated_at: timestamp,
+      created_at: timestamp
+    }
   end
 
-  def hacker_snippet
-    /!.*/.match(hacker_sentences(3).reverse).to_s.reverse
-  end
+  private
 
-  def published
-    [true, false].sample
-  end
+    def sentence
+      sentences(1)
+    end
 
-  def timestamp
-    Faker::Time.backward(30)
-  end
+    def sentences(n)
+      l33t = ""
+      n.times { l33t += "#{Faker::Hacker.say_something_smart} " }
+      l33t[0...-1]
+    end
 
-  def earlier
-    Faker::Time.between(timestamp - 2.days, timestamp)
+    def trimmed
+      /!.*/.match(sentences(3)[0..255].reverse).to_s.reverse
+    end
+
+    def published
+      @published = [true, false].sample
+    end
+
+    def timestamp
+      Faker::Time.backward(30)
+    end
+
+    def earlier
+      Faker::Time.between(timestamp - 2.days, timestamp)
+    end
   end

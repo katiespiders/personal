@@ -5,3 +5,13 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+require './hacker_ipsum.rb'
+
+hacker = HackerIpsum.new
+
+10.times do
+  Post.create(hacker.post)
+  Snippet.create(hacker.snippet)
+end
+
+User.create(name: 'katie', password: 'password')
