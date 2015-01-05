@@ -9,7 +9,11 @@ FactoryGirl.define do
       published? true
       published_at Faker::Time.backward(30)
     end
+
+    trait :invalid do
+      title nil
+    end
   end
 
-  
+
 end

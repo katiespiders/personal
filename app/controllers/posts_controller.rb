@@ -9,24 +9,29 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
-      redirect_to posts_path, notice: "Posted #{@post.title}"
+      redirect_to posts_path, notice: "posted #{@post.title}"
     else
-      render :new
+      render :new, notice: 'fail'
     end
   end
 
   def update
-
+    if @post.update(post_params)
+      redirect_to post_path(@post.id), notice: "edited #{@post.title}"
+    else
+      render :edit, notice: 'you broke it'
+    end
   end
 
   def destroy
-
+    @post.destroy
+    redirect_to posts_path
   end
 
   private
 
     def authorize
-      redirect_to posts_path, notice: 'Authorization fail' unless me?
+      redirect_to posts_path, notice: 'authorization fail' unless me?
     end
 
     def find_post
