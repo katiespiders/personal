@@ -6,6 +6,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <header>
+    <div id='nav'>
+      <%= link_to 'posts', posts_path %>
+      <%= link_to 'blurbs', blurbs_path %>
+      <%= link_to 'resources', resources_path %>
+      <%= link_to 'concepts', concepts_path %>
+      <%= link_to 'sign out', signout_path %>
+    </div>
+  </header>
+
 <%= flash[:notice] %>
 <%= yield %>
 

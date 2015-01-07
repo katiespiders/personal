@@ -12,7 +12,7 @@ RSpec.describe Post, :type => :model do
   end
 
   it 'must have content' do
-    expect(FactoryGirl.build(:post, content: nil)).not_to be_valid
+    expect(FactoryGirl.build(:post, body: nil)).not_to be_valid
   end
 
   context 'Published post' do

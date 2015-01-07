@@ -3,7 +3,7 @@ class HackerIpsum
   def post
     {
       title: sentence,
-      content: sentences(100),
+      body: sentences(100),
       published?: published,
       published_at: @published ? timestamp : nil,
       updated_at: timestamp,
@@ -11,9 +11,9 @@ class HackerIpsum
     }
   end
 
-  def snippet
+  def blurb
     {
-      content: trimmed,
+      body: trimmed,
       updated_at: timestamp,
       created_at: timestamp
     }

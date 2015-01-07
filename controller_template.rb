@@ -30,6 +30,6 @@ class PineapplesController < ApplicationController
 
   private
     def pineapple_params
-      
+
     end
   end

@@ -12,16 +12,16 @@ module PostsHelper
     @post = post
 
     html = "<div class='preview-div'>#{headline(post)}"
-    html += "<article class='preview-article'>#{content_preview}</article>"
-    html += "<article class='full-article'>#{@post.content}</article>"
+    html += "<article class='preview-article'>#{body_preview}</article>"
+    html += "<article class='full-article'>#{@post.body}</article>"
     html += "</div>"
     html.html_safe
   end
 
   private
 
-    def content_preview
-      @post.content.length < 500 ? @post.content : /\A.{500}\S*/m.match(@post.content).to_s + " ... "
+    def body_preview
+      @post.body.length < 500 ? @post.body : /\A.{500}\S*/m.match(@post.body).to_s + " ... "
     end
 
     def timestamp

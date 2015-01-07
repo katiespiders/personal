@@ -11,7 +11,7 @@ hacker = HackerIpsum.new
 
 10.times do
   Post.create(hacker.post)
-  Snippet.create(hacker.snippet)
+  Blurb.create(hacker.blurb)
 end
 
 User.create(name: 'katie', password: 'password')

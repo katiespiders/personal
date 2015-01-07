@@ -11,16 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150107183840) do
+ActiveRecord::Schema.define(version: 20150105062923) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "blurbs", force: true do |t|
-    t.string   "body"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "concepts", force: true do |t|
     t.string   "name"
@@ -28,35 +22,38 @@ ActiveRecord::Schema.define(version: 20150107183840) do
     t.datetime "updated_at"
   end
 
-  create_table "concepts_resources", id: false, force: true do |t|
-    t.integer "resource_id"
+  create_table "concepts_and_resources", id: false, force: true do |t|
     t.integer "concept_id"
+    t.integer "resource_id"
+  end
+
+  create_table "concepts_and_blurbs", id: false, force: true do |t|
+    t.integer "concept_id"
+    t.integer "blurb_id"
   end
 
   create_table "posts", force: true do |t|
     t.string   "title"
-    t.text     "body"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.text     "content"
     t.boolean  "published?",   default: false
     t.datetime "published_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "resources", force: true do |t|
-    t.string   "author"
     t.string   "title"
+    t.string   "author"
     t.string   "url"
+    t.datetime "retrieved_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "taggables_tags", force: true do |t|
-    t.integer  "tag_id"
-    t.string   "tag_type"
-    t.integer  "taggable_id"
+  create_table "blurbs", force: true do |t|
+    t.string   "content"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "taggable_type"
   end
 
   create_table "users", force: true do |t|
