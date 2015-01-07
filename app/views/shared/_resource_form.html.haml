@@ -1,0 +1,15 @@
+= form_for resource do |f|
+  %table.table
+    %tr
+      %td= f.label :title
+      %td= f.text_field :title
+    %tr
+      %td= f.label :author
+      %td= f.text_field :author
+    %tr
+      %td= f.label :url, 'URL'
+      %td= f.text_field :url
+    %tr
+      %td= link_to 'add a tag', new_concept_path
+    %tr
+      %td= f.submit

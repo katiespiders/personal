@@ -4,7 +4,11 @@
       %td= f.label :title
       %td= f.text_field :title
     %tr
-      %td= f.label :body, 'Body'
+      %td= f.label :body
       %td= f.text_area :body
+    %tr
+      %td= link_to 'add a resource', new_resource_path
+    %tr
+      %td= link_to 'add a tag', new_tag_path
     %tr
       %td= f.submit 'Post'

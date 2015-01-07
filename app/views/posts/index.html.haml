@@ -7,8 +7,3 @@
   - else
     - Post.sort_desc.each do |post|
       = preview(post)
-%footer
-  - if me?
-    = link_to 'sign out', signout_path
-  - else
-    = link_to 'sign in', signin_path
