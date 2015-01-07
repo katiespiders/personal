@@ -1,0 +1,5 @@
+%li
+  = link_to resource.title, resource.url
+  %span= " from #{resource.author}"
+  %span= link_to 'edit', edit_resource_path(resource.id) if me?
+  %span= link_to 'delete', resource_path(resource.id), method: :delete if me?

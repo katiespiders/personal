@@ -4,5 +4,5 @@ class Concept < ActiveRecord::Base
   has_many :taggables, as: :tag, through: :taggables_tags
   has_and_belongs_to_many :resources
 
-  validates :body, presence: true
+  validates :name, presence: true, uniqueness: true
 end

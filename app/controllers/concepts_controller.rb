@@ -9,7 +9,7 @@ class ConceptsController < ApplicationController
   def create
     @concept = Concept.new(concept_params)
     if @concept.save
-      redirect_to concepts_path, notice: "#{@concept.title} created"
+      redirect_to concepts_path, notice: "#{@concept.name} tag created"
     else
       render :new, notice: 'concept failure'
     end
@@ -17,9 +17,9 @@ class ConceptsController < ApplicationController
 
   def update
     if @concept.update
-      redirect_to concepts_path, notice: "#{@concept.title} edited"
+      redirect_to concepts_path, notice: "#{@concept.name} tag edited"
     else
-      render :edit, notice: notice: 'you broke it'
+      render :edit, notice: 'you broke it'
     end
   end
 
@@ -31,7 +31,7 @@ class ConceptsController < ApplicationController
   private
 
     def find_concept
-      Concept.find(params[:id])
+      @concept = Concept.find(params[:id])
     end
 
     def concept_params

@@ -1,0 +1,4 @@
+#container
+  %ul
+  - @concept.resources.all.each do |resource|
+    = render 'shared/resource', resource: resource
