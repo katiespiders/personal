@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authorize, except: [:index, :show]
+  before_action except: [:index, :show] { authorize(posts_path) }
   before_action :find_post, except: [:index, :new, :create]
 
   def index
@@ -11,7 +11,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to posts_path, notice: "posted #{@post.title}"
     else
-      render :new, notice: 'fail'
+      render :new, notice: 'post creation failure'
     end
   end
 
@@ -29,16 +29,11 @@ class PostsController < ApplicationController
   end
 
   private
-
-    def authorize
-      redirect_to posts_path, notice: 'authorization fail' unless me?
-    end
-
     def find_post
       @post = Post.find(params[:id])
     end
 
     def post_params
-      params.require(:post).permit(:title, :body)
+      params.require(:post).permit(:title, :body, :resources, :concepts)
     end
 end

@@ -1,4 +1,5 @@
 class BlurbsController < ApplicationController
+  before_action except: [:index, :show] { authorize(blurbs_path) }
   before_action :find_blurb, except: [:index, :new, :create]
 
   def index
@@ -18,7 +19,7 @@ class BlurbsController < ApplicationController
     if @blurb.update(blurb_params)
       redirect_to blurb_path(@blurb.id), notice: 'blurb edited'
     else
-      render :edit, alert: 'blurb editing failure'
+      render :edit, alert: notice: 'you broke it'
     end
   end
 
@@ -28,7 +29,7 @@ class BlurbsController < ApplicationController
   end
 
   private
-  def blurb_params
-
-  end
+    def blurb_params
+      params.require(:blurb).permit(:body)
+    end
 end

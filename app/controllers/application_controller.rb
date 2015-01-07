@@ -8,5 +8,11 @@ class ApplicationController < ActionController::Base
     user && user.name == 'katie'
   end
   helper_method :me?
-  
+
+  def authorize(redirect_path)
+    redirect_to redirect_path, notice: 'authorization fail' unless me?
+  end
+  helper_method :authorize  
+
+
 end
