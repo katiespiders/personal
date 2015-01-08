@@ -7,6 +7,10 @@
       %td= f.label :body
       %td= f.text_area :body
     %tr
+      %td= f.label :tags
+      %td= f.select :tags, options_from_collection_for_select(Resource.all, :id, :title)
+
+    %tr
       %td= link_to 'add a resource', new_resource_path
     %tr
       %td= link_to 'add a tag', new_tag_path
