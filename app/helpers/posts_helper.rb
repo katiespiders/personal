@@ -12,8 +12,8 @@ module PostsHelper
     @post = post
 
     html = "<div class='preview-div'>#{headline(post)}"
-    html += "<article class='preview-article'>#{body_preview}</article>"
-    html += "<article class='full-article'>#{@post.body}</article>"
+    html += "<article class='preview-article'>#{markdown(body_preview)}</article>"
+    html += "<article class='full-article'>#{markdown(@post.body)}</article>"
     html += "</div>"
     html.html_safe
   end

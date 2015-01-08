@@ -4,5 +4,8 @@
 %body
   #container
     = headline(@post)
-
-    %article= @post.body
+    %span= @post.timestamp
+    %span
+      - @post.concepts.each do |c|
+        = link_to c.name, concept_path(c.id)
+    %article= markdown(@post.body)
