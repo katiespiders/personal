@@ -19,6 +19,26 @@ class HackerIpsum
     }
   end
 
+  def resource
+    {
+      title: Faker::Company.catch_phrase,
+      author: Faker::Name.name,
+      url: Faker::Internet.url
+    }
+  end
+
+  def concept
+    {
+      name: [
+        Faker::Hacker.abbreviation,
+        Faker::Hacker.adjective,
+        Faker::Hacker.noun,
+        Faker::Hacker.verb,
+        Faker::Hacker.ingverb
+      ].sample
+    }
+  end
+
   private
 
     def sentence
