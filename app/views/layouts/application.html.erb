@@ -19,6 +19,8 @@
 <%= flash[:notice] %>
 <%= flash[:alert] %>
 <%= yield %>
-
+  <footer>
+    <%= debug(params) %>
+  </footer>
 </body>
 </html>
