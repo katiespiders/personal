@@ -47,7 +47,7 @@ class HackerIpsum
 
     def sentences(n)
       l33t = ""
-      n.times { l33t += "#{Faker::Hacker.say_something_smart} " }
+      n.times { l33t += "#{Faker::Hacker.say_something_smart.capitalize} " }
       l33t[0...-1]
     end
 

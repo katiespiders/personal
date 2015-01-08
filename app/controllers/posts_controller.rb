@@ -37,12 +37,22 @@ class PostsController < ApplicationController
       params.require(:post).permit(:title, :body, :resources, :concepts)
     end
 
+    def post_resources
+      resources = params[:post][:resources].reject { |r| r.empty? }
+      resources.collect { |r| Resource.find_by(id: r) }
+    end
+
+    def post_concepts
+      concepts = params[:post][:concepts].reject { |c| c.empty? }
+      concepts.collect { |c| Concept.find_by(id: c) }
+    end
+
     def post_attributes
       {
         title: post_params[:title],
         body: post_params[:body],
-        resources: [Resource.find_by(id: post_params[:resources])],
-        concepts: [Concept.find_by(id: post_params[:concepts])]
+        resources: post_resources,
+        concepts: post_concepts
       }
     end
 end
