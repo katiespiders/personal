@@ -7,7 +7,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
+    @post = Post.new(post_attributes)
     if @post.save
       redirect_to posts_path, notice: "posted #{@post.title}"
     else
@@ -16,7 +16,7 @@ class PostsController < ApplicationController
   end
 
   def update
-    if @post.update(post_params)
+    if @post.update(post_attributes)
       redirect_to post_path(@post.id), notice: "edited #{@post.title}"
     else
       render :edit, notice: 'you broke it'
@@ -35,5 +35,14 @@ class PostsController < ApplicationController
 
     def post_params
       params.require(:post).permit(:title, :body, :resources, :concepts)
+    end
+
+    def post_attributes
+      {
+        title: post_params[:title],
+        body: post_params[:body],
+        resources: [Resource.find_by(id: post_params[:resources])],
+        concepts: [Concept.find_by(id: post_params[:concepts])]
+      }
     end
 end

@@ -1,14 +1,26 @@
-= form_for post do |f|
+= form_for obj do |f|
   %table.table
-    %tr
-      %td= f.label :title
-      %td= f.text_field :title
+    - post = obj.class == Post
+    - if post
+      %tr
+        %td= f.label :title
+        %td= f.text_field :title
     %tr
       %td= f.label :body
-      %td= f.text_area :body
+      - if post
+        %td= f.text_area :body
+      - else
+        %td= f.text_field :body
+    %tr
+      %td= f.label :resources
+      %td= f.collection_select(:resources, Resource.all, :id, :title, {}, {multiple: true})
     %tr
       %td= link_to 'add a resource', new_resource_path
     %tr
-      %td= link_to 'add a tag', new_concept_path
+    %tr
+      %td= f.label :concepts
+      %td= f.collection_select(:concepts, Concept.all, :id, :name, {}, {multiple: true})
+    %tr
+      %td= link_to 'add a concept', new_concept_path
     %tr
       %td= f.submit 'Post'
