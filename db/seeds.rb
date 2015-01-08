@@ -12,8 +12,6 @@ hacker = HackerIpsum.new
 10.times do
   Post.create(hacker.post)
   Blurb.create(hacker.blurb)
-  Resource.create(author: Faker::Name.name, title: Faker::Company.catch_phrase, url: Faker::Internet.url)
-  Concept.create(name: [Faker::Hacker.abbreviation, Faker::Hacker.adjective, Faker::Hacker.noun, Faker::Hacker.verb, Faker::Hacker.ingverb].sample)
 end
 
 User.create(name: 'katie', password: 'password')

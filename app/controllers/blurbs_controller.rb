@@ -19,7 +19,7 @@ class BlurbsController < ApplicationController
     if @blurb.update(blurb_params)
       redirect_to blurb_path(@blurb.id), notice: 'blurb edited'
     else
-      render :edit, alert: 'you broke it'
+      render :edit, alert: notice: 'you broke it'
     end
   end
 
