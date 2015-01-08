@@ -1,7 +1,4 @@
 class Blurb < ActiveRecord::Base
-  belongs_to :tags, polymorphic: true
-  has_many :taggables_tags, as: :taggable
-  has_many :tags, as: :taggable, through: :taggables_tags
-
-  validates :body, presence: true
+  has_and_belongs_to_many :resources
+  has_and_belongs_to_many :concepts
 end
