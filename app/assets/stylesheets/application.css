@@ -13,11 +13,78 @@
  *= require_tree .
  *= require_self
  */
+body {
+  font-family: Calibri,Candara,Segoe,"Segoe UI",Optima,Arial,sans-serif;
+  background-color: rgba(18, 62, 196, 0.75);
+}
 
-header, footer, #container {
-  padding: 5px 5%;
-  }
+header {
+  height: 150px;
+  font-family: "Arial Rounded MT Bold","Helvetica Rounded",Arial,sans-serif;
+  /*background: url('lemaire-crop.jpg') no-repeat;*/
+}
 
-.preview-div {
-  padding: 5px 0;
-  }
+header a, header a:hover, header a:visited {
+  color: white;
+  padding: 5px;
+}
+
+header #brand a {
+  margin: 0 7.5%;
+  height: 50%;
+  /*color: black;*/
+}
+
+header h1 {
+  font-style: italic;
+  font-size: 48px;
+}
+
+header #nav-bar {
+  position: relative;
+  height: 50%;
+  margin: 0 7.5%;
+}
+
+header #nav-general {
+  position: absolute;
+  bottom: 20px;
+  float: left;
+  font-size: 24px;
+}
+
+header #nav-admin {
+  bottom: 0;
+  float: right;
+}
+
+header h1 {
+  margin: 0;
+  padding: 20px 5px 10px 5px;
+}
+
+header small {
+  color: white;
+  font-size: 33%;
+}
+
+a, a:focus, a:hover, a:visited {
+  text-decoration: none;
+}
+
+#container {
+  margin: 0 7.5%;
+  padding: 0 5%;
+  background-color: white;
+}
+
+#container a, #container a:hover, #container a:visited {
+  color: #0f5fba;
+}
+
+.link-icon {
+  height: 48px;
+  width: auto;
+  position: relative;
+  top: 16px;
+}

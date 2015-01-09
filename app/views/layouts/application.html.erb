@@ -7,12 +7,19 @@
 </head>
 <body>
   <header>
-    <div id='nav'>
-      <%= link_to 'posts', posts_path %>
-      <%= link_to 'blurbs', blurbs_path %>
-      <%= link_to 'resources', resources_path %>
-      <%= link_to 'concepts', concepts_path %>
-      <%= if me? then link_to 'sign out', signout_path else link_to 'sign in', signin_path end %>
+    <div id='brand'>
+      <h1><%= link_to 'the vast beyond', root_path %> <small>7321 (name courtesy of heroku)</small></h1>
+    </div>
+    <div id='nav-bar'>
+      <span style='float: left' id='nav-general'>
+        <%= link_to 'posts', posts_path %>
+        <%= link_to 'resources', resources_path %>
+        <%= link_to 'concepts', concepts_path %>
+      </span>
+      <span style='float: right' id='nav-admin'>
+        <%= if me? then link_to image_tag('white/menu-h.png', class: 'link-icon admin-dropdown'), signout_path else link_to image_tag('white/signin.png', class: 'link-icon admin-hidden'), signin_path end %>
+
+      </span>
     </div>
   </header>
 
@@ -20,7 +27,7 @@
 <%= flash[:alert] %>
 <%= yield %>
   <footer>
-    <%= debug(params) %>
+    <%= debug(params) if Rails.env.development? %>
   </footer>
 </body>
 </html>
