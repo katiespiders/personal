@@ -11,7 +11,8 @@ module PostsHelper
   def preview(post)
     @post = post
 
-    html = "<div class='preview-div'>#{headline(post)}"
+    html = "<div class='preview-div #{div_class}'>"
+    html += "#{headline(post)}"
     html += "<article class='preview-article'>#{markdown(body_preview)}</article>"
     html += "<article class='full-article'>#{markdown(@post.body)}</article>"
     html += "</div>"
@@ -31,4 +32,9 @@ module PostsHelper
     def admin_links
       "#{link_to 'edit', edit_post_path(@post)} #{link_to 'delete', post_path(@post), method: :delete}" if me?
     end
+
+    def div_class
+      @post.published? ? 'public-view' : me? ? 'draft-view' : 'hidden'
+    end
+
 end

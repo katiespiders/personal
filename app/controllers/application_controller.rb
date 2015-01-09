@@ -13,6 +13,4 @@ class ApplicationController < ActionController::Base
     redirect_to redirect_path, notice: 'authorization fail' unless me?
   end
   helper_method :authorize  
-
-
 end

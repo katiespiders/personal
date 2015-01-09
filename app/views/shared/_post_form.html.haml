@@ -4,13 +4,13 @@
     - if post
       %tr
         %td= f.label :title
-        %td= f.text_field :title
+        %td= f.text_field :title, id: 'post-title-field'
     %tr
       %td= f.label :body
       - if post
-        %td= f.text_area :body
+        %td= f.text_area :body, id: 'post-field'
       - else
-        %td= f.text_field :body
+        %td= f.text_field :body, id: 'blurb-field'
     %tr
       %td= f.label :resources
       %td= f.collection_select(:resources, Resource.all, :id, :title, {}, {multiple: true})
@@ -23,4 +23,5 @@
     %tr
       %td= link_to 'add a concept', new_concept_path
     %tr
-      %td= f.submit 'Post'
+      %td= f.submit 'save draft', name: 'submit'
+      %td= f.submit 'publish', name: 'submit'

@@ -32,7 +32,6 @@ header a, header a:hover, header a:visited {
 header #brand a {
   margin: 0 7.5%;
   height: 50%;
-  /*color: black;*/
 }
 
 header h1 {
@@ -73,9 +72,8 @@ a, a:focus, a:hover, a:visited {
 }
 
 #container {
-  margin: 0 7.5%;
+  margin: 0 5%;
   padding: 0 5%;
-  background-color: white;
 }
 
 #container a, #container a:hover, #container a:visited {
