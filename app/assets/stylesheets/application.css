@@ -16,6 +16,8 @@
 body {
   font-family: Calibri,Candara,Segoe,"Segoe UI",Optima,Arial,sans-serif;
   background-color: rgba(18, 62, 196, 0.75);
+  padding: 0 5%;
+  min-width: 504px;
 }
 
 header {
@@ -30,7 +32,6 @@ header a, header a:hover, header a:visited {
 }
 
 header #brand a {
-  margin: 0 7.5%;
   height: 50%;
 }
 
@@ -42,7 +43,6 @@ header h1 {
 header #nav-bar {
   position: relative;
   height: 50%;
-  margin: 0 7.5%;
 }
 
 header #nav-general {
@@ -50,6 +50,7 @@ header #nav-general {
   bottom: 20px;
   float: left;
   font-size: 24px;
+  margin-left: 10px;
 }
 
 header #nav-admin {
@@ -58,7 +59,6 @@ header #nav-admin {
 }
 
 header h1 {
-  margin: 0;
   padding: 20px 5px 10px 5px;
 }
 
@@ -72,8 +72,6 @@ a, a:focus, a:hover, a:visited {
 }
 
 #container {
-  margin: 0 5%;
-  padding: 0 5%;
 }
 
 #container a, #container a:hover, #container a:visited {
