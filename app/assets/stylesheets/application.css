@@ -17,6 +17,7 @@
  /*POSITIONING*/
 header {
   height: 150px;
+  background-color: #6179ff;
   font-family: "Arial Rounded MT Bold","Helvetica Rounded",Arial,sans-serif;
   position: relative;
   border: solid;
@@ -48,25 +49,33 @@ header {
       right: 0;
       height: 100%;
       width: 20%;
-      min-width: 160px;
+      min-width: 240px;
     }
-
-      #admin-dropdown {
-        position: absolute;
-        width: 160px;
-        display: none;
-      }
 
       #nav-admin .link-icon {
         position: absolute;
         top: 8px;
         right: 8px;
         height: 48px;
-        width: auto;
+        width: 48px;
+      }
+
+      #admin-dropdown {
+        position: absolute;
+        padding-top: 8px;
+        background-color: #6179ff;
+        width: 176px;
+        text-align: right;
+        font-size: 16px;
+        /*display: none;*/
+      }
+
+      #admin-dropdown li {
+        padding-bottom: 4px;
       }
 
 /*PRETTIFYING*/
-header div, header ul {
+header div {
   border: solid;
   border-width: 1px;
   padding: 0;
@@ -92,7 +101,7 @@ header ul {
 
 body {
   font-family: Calibri,Candara,Segoe,"Segoe UI",Optima,Arial,sans-serif;
-  background-color: rgba(18, 62, 196, 0.75);
+  background-color: #6179ff;
   padding: 0 5%;
   min-width: 504px;
 }
@@ -113,9 +122,6 @@ header small {
 
 #nav-general a {
   font-size: 150%;
-}
-
-#container {
 }
 
 #container a, #container a:hover, #container a:visited {

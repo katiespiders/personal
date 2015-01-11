@@ -1,6 +1,4 @@
-#container
-  = link_to 'make resource', new_resource_path if me?
-  %ul
-    - Resource.all.each do |resource|
-      =render 'shared/resource', resource: resource
-      
+= link_to 'make resource', new_resource_path if me?
+%ul
+  - Resource.all.each do |resource|
+    =render 'shared/resource', resource: resource

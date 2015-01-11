@@ -1,4 +1,3 @@
-#container
-  = link_to 'make concept', new_concept_path if me?
-  - Concept.all.each do |concept|
-    = link_to concept.name, concept_path(concept.id)
+= link_to 'make concept', new_concept_path if me?
+- Concept.all.each do |concept|
+  = link_to concept.name, concept_path(concept.id)

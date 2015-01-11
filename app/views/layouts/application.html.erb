@@ -36,10 +36,14 @@
 
     </div>
   </header>
+<div id='notice'>
+  <%= flash[:notice] %>
+  <%= flash[:alert] %>
+</div>
 
-<%= flash[:notice] %>
-<%= flash[:alert] %>
-<%= yield %>
+<div id='container'>
+  <%= yield %>
+</div>
 
 </body>
 </html>

@@ -1,12 +1,11 @@
-#container
-  - Blurb.all.each do |blurb|
-    %div.themoreyouknow
-      %div
-        %small
-          - blurb.concepts.each do |c|
-            = link_to c.name, concept_path(c.id)
-      = body(blurb)
-      %span
-        %small= link_to 'edit', edit_blurb_path(blurb.id) if me?
-      %span
-        %small= link_to 'delete', blurb_path(blurb.id), method: :delete if me?
+- Blurb.all.each do |blurb|
+  %div.themoreyouknow
+    %div
+      %small
+        - blurb.concepts.each do |c|
+          = link_to c.name, concept_path(c.id)
+    = body(blurb)
+    %span
+      %small= link_to 'edit', edit_blurb_path(blurb.id) if me?
+    %span
+      %small= link_to 'delete', blurb_path(blurb.id), method: :delete if me?
