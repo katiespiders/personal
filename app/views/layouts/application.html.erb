@@ -11,23 +11,35 @@
       <h1><%= link_to 'the vast beyond', root_path %> <small>7321</small></h1>
     </div>
     <div id='nav-bar'>
-      <span style='float: left' id='nav-general'>
-        <%= link_to 'posts', posts_path %>
-        <%= link_to 'resources', resources_path %>
-        <%= link_to 'concepts', concepts_path %>
-      </span>
-      <span style='float: right' id='nav-admin'>
-        <%= if me? then link_to image_tag('white/menu-h.png', class: 'link-icon admin-dropdown'), signout_path else link_to image_tag('white/signin.png', class: 'link-icon admin-hidden'), signin_path end %>
+      <div id='nav-general'>
+        <ul class='horiz-list'>
+          <li><%= link_to 'posts', posts_path %></li>
+          <li><%= link_to 'resources', resources_path %></li>
+          <li><%= link_to 'concepts', concepts_path %></li>
+        </ul>
+      </div>
+      <% if me? %>
+        <div id='nav-admin'>
+          <%= image_tag('white/menu-h.png', class: 'link-icon', alt: 'menu') %>
+          <ul id='admin-dropdown'>
+            <li><%= link_to 'make new post', new_post_path %></li>
+            <li><%= link_to 'view draft posts', draft_posts_path %></li>
+            <li><%= link_to 'make new blurb', new_blurb_path %></li>
+            <li><%= link_to 'sign out', signout_path %></li>
+          </ul>
+        </div>
+      <% else %>
+        <div id='signin'>
+          <%= link_to image_tag('white/signin.png', class: 'link-icon bkgd-color', alt: 'sign in'), signin_path %>
+        </div>
+      <% end %>
 
-      </span>
     </div>
   </header>
 
 <%= flash[:notice] %>
 <%= flash[:alert] %>
 <%= yield %>
-  <footer>
-    <%= debug(params) if Rails.env.development? %>
-  </footer>
+
 </body>
 </html>

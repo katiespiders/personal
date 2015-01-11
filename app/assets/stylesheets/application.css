@@ -13,6 +13,83 @@
  *= require_tree .
  *= require_self
  */
+
+ /*POSITIONING*/
+header {
+  height: 150px;
+  font-family: "Arial Rounded MT Bold","Helvetica Rounded",Arial,sans-serif;
+  position: relative;
+  border: solid;
+  /*background: url('lemaire-crop.jpg') no-repeat;*/
+}
+
+  #brand {
+    position: absolute;
+    height: 50%;
+    width: 100%;
+  }
+
+  #nav-bar {
+    position: absolute;
+    bottom: 0;
+    height: 50%;
+    width: 100%;
+  }
+
+    #nav-general {
+      position: absolute;
+      height: 100%;
+      width: 80%;
+      min-width: 210px;
+    }
+
+    #nav-admin {
+      position: absolute;
+      right: 0;
+      height: 100%;
+      width: 20%;
+      min-width: 160px;
+    }
+
+      #admin-dropdown {
+        position: absolute;
+        width: 160px;
+        display: none;
+      }
+
+      #nav-admin .link-icon {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        height: 48px;
+        width: auto;
+      }
+
+/*PRETTIFYING*/
+header div, header ul {
+  border: solid;
+  border-width: 1px;
+  padding: 0;
+  margin: 0;
+}
+
+header ul {
+  list-style: none;
+}
+
+#brand h1 {
+  font-style: italic;
+  font-size: 48px;
+}
+
+.horiz-list {
+  padding: 20px 0;
+}
+
+.horiz-list li {
+  display: inline;
+}
+
 body {
   font-family: Calibri,Candara,Segoe,"Segoe UI",Optima,Arial,sans-serif;
   background-color: rgba(18, 62, 196, 0.75);
@@ -20,46 +97,13 @@ body {
   min-width: 504px;
 }
 
-header {
-  height: 150px;
-  font-family: "Arial Rounded MT Bold","Helvetica Rounded",Arial,sans-serif;
-  /*background: url('lemaire-crop.jpg') no-repeat;*/
-}
-
 header a, header a:hover, header a:visited {
   color: white;
   padding: 5px;
 }
 
-header #brand a {
-  height: 50%;
-}
-
-header h1 {
-  font-style: italic;
-  font-size: 48px;
-}
-
-header #nav-bar {
-  position: relative;
-  height: 50%;
-}
-
-header #nav-general {
-  position: absolute;
-  bottom: 20px;
-  float: left;
-  font-size: 24px;
-  margin-left: 10px;
-}
-
-header #nav-admin {
-  bottom: 0;
-  float: right;
-}
-
-header h1 {
-  padding: 20px 5px 10px 5px;
+a, a:focus, a:hover, a:visited {
+  text-decoration: none;
 }
 
 header small {
@@ -67,8 +111,8 @@ header small {
   font-size: 33%;
 }
 
-a, a:focus, a:hover, a:visited {
-  text-decoration: none;
+#nav-general a {
+  font-size: 150%;
 }
 
 #container {
@@ -76,11 +120,4 @@ a, a:focus, a:hover, a:visited {
 
 #container a, #container a:hover, #container a:visited {
   color: #0f5fba;
-}
-
-.link-icon {
-  height: 48px;
-  width: auto;
-  position: relative;
-  top: 16px;
 }
