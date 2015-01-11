@@ -1,10 +1,15 @@
 class PostsController < ApplicationController
-  before_action except: [:index, :show] { authorize(posts_path) }
-  before_action :find_post, except: [:index, :new, :create]
-  before_action :draft_view, only: [:show, :edit]
+  before_action except: [:index, :draft_index, :show] { authorize(posts_path) }
+  before_action :find_post, except: [:index, :draft_index, :new, :create]
+  before_action :draft_access, only: [:draft_index, :show, :edit]
 
   def index
     @posts = Post.all
+  end
+
+  def draft_index
+    @posts = Post.where(published?: false)
+    render :index
   end
 
   def create
@@ -63,7 +68,7 @@ class PostsController < ApplicationController
       }
     end
 
-    def draft_view
+    def draft_access
       unless @post.published? || me?
         redirect_to posts_path, alert: 'what are you doing in here'
       end

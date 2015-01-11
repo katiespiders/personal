@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
 
   root  'posts#index'
-  resources :blurbs, :resources, :concepts
-  resources :posts
 
-  get   'signin',         to: 'sessions#new',     as: :signin_form
-  post  'signin',         to: 'sessions#create',  as: :signin
-  get   'signout',        to: 'sessions#destroy', as: :signout
+  get   'posts/drafts',   to: 'posts#draft_index',  as: :draft_posts
+
+  get   'signin',         to: 'sessions#new',       as: :signin_form
+  post  'signin',         to: 'sessions#create',    as: :signin
+  get   'signout',        to: 'sessions#destroy',   as: :signout
+
+  resources :blurbs, :posts, :resources, :concepts
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

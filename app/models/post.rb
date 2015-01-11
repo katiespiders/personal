@@ -5,12 +5,12 @@ class Post < ActiveRecord::Base
   validates :title, presence: true
   validates :body, presence: true
 
-  def self.sort_asc
-    all.to_a.sort_by{ |post| post.timestamp }
+  def self.sort_asc(subset)
+    subset.to_a.sort_by{ |post| post.timestamp }
   end
 
-  def self.sort_desc
-    sort_asc.reverse
+  def self.sort_desc(subset)
+    sort_asc(subset).reverse
   end
 
   def timestamp
