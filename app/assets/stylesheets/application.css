@@ -61,7 +61,7 @@ header {
 
       #admin-dropdown {
         position: absolute;
-        padding-top: 8px;
+        padding: 8px;
         background-color: #6179ff;
         width: 176px;
         text-align: right;
@@ -72,6 +72,8 @@ header {
       #admin-dropdown li {
         padding-bottom: 4px;
       }
+
+
 /*PRETTIFYING*/
 header div {
   padding: 0;
@@ -122,4 +124,9 @@ header small {
 
 #container a, #container a:hover, #container a:visited {
   color: #0f5fba;
+}
+
+.menu-section {
+  padding: 8px 0;
+  border-bottom: solid white;
 }

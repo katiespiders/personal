@@ -15,7 +15,6 @@
 //= require_tree .
 
 $(document).ready(function() {
-  // $('#nav-admin .link-icon').bind('mouseover', openDropdown);
 
   $('#nav-admin .link-icon').mouseover(function() {
     $('#admin-dropdown').css('display', 'block');
@@ -25,11 +24,3 @@ $(document).ready(function() {
     $('#admin-dropdown').css('display', 'none');
   });
 });
-
-function openDropdown() {
-  $(this).siblings('#admin-dropdown').css('display', 'block');
-}
-
-function closeDropdown() {
-  $(this).siblings('#admin-dropdown').css('display', 'none');
-}

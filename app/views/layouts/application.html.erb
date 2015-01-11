@@ -22,9 +22,20 @@
         <div id='nav-admin'>
           <%= image_tag('white/menu-h.png', class: 'link-icon', alt: 'menu') %>
           <ul id='admin-dropdown'>
-            <li><%= link_to 'make new post', new_post_path %></li>
-            <li><%= link_to 'view draft posts', draft_posts_path %></li>
-            <li><%= link_to 'make new blurb', new_blurb_path %></li>
+            <div class='menu-section'>
+              <li><%= link_to 'new post', new_post_path %></li>
+              <li><%= link_to 'all posts', posts_path %></li>
+              <li><%= link_to 'draft posts', draft_posts_path %></li>
+              <li><%= link_to 'published posts', published_posts_path %>
+            </div>
+            <div class='menu-section'>
+              <li><%= link_to 'new note', new_blurb_path %></li>
+              <li><%= link_to 'all notes',  blurbs_path %></li>
+            </div>
+            <div class='menu-section'>
+              <li><%= link_to 'new resource', new_resource_path %>
+              <li><%= link_to 'all resources', resources_path %>
+            </div>
             <li><%= link_to 'sign out', signout_path %></li>
           </ul>
         </div>
