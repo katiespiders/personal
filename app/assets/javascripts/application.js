@@ -15,11 +15,15 @@
 //= require_tree .
 
 $(document).ready(function() {
-  $('#nav-admin .link-icon').bind('mouseover', openDropdown);
-  // $('#nav-admin').bind('mouseleave', closeDropdown);
-  $('#nav-admin').mouseleave(function() {
-    $('#admin-dropdown').css('display', 'none')});
+  // $('#nav-admin .link-icon').bind('mouseover', openDropdown);
 
+  $('#nav-admin .link-icon').mouseover(function() {
+    $('#admin-dropdown').css('display', 'block');
+  });
+
+  $('#nav-admin').mouseleave(function() {
+    $('#admin-dropdown').css('display', 'none');
+  });
 });
 
 function openDropdown() {

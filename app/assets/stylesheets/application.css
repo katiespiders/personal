@@ -20,7 +20,6 @@ header {
   background-color: #6179ff;
   font-family: "Arial Rounded MT Bold","Helvetica Rounded",Arial,sans-serif;
   position: relative;
-  border: solid;
   /*background: url('lemaire-crop.jpg') no-repeat;*/
 }
 
@@ -44,7 +43,7 @@ header {
       min-width: 210px;
     }
 
-    #nav-admin {
+    #nav-admin, #nav-signin {
       position: absolute;
       right: 0;
       height: 100%;
@@ -52,7 +51,7 @@ header {
       min-width: 240px;
     }
 
-      #nav-admin .link-icon {
+      #nav-admin .link-icon, #nav-signin .link-icon {
         position: absolute;
         top: 8px;
         right: 8px;
@@ -73,11 +72,8 @@ header {
       #admin-dropdown li {
         padding-bottom: 4px;
       }
-
 /*PRETTIFYING*/
 header div {
-  border: solid;
-  border-width: 1px;
   padding: 0;
   margin: 0;
 }
