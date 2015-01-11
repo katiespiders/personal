@@ -8,7 +8,7 @@
     %tr
       %td= f.label :body
       - if post
-        %td= f.text_field :body, id: 'post-field'
+        %td= f.text_area :body, id: 'post-field'
       - else
         %td= f.text_field :body, id: 'blurb-field'
     %tr
