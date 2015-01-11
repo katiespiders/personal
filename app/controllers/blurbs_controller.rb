@@ -30,7 +30,7 @@ class BlurbsController < ApplicationController
 
   private
     def find_blurb
-      @blurb = Post.find(params[:id])
+      @blurb = Blurb.find(params[:id])
     end
 
     def blurb_params

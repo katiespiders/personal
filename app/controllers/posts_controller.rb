@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action except: [:index, :draft_index, :show] { authorize(posts_path) }
-  before_action :find_post, except: [:index, :draft_index, :new, :create]
-  before_action :draft_access, only: [:draft_index, :show, :edit]
+  before_action :find_post, except: [:index, :draft_index, :published_index, :new, :create]
+  before_action :draft_access, only: [:show, :edit]
 
   def index
     @posts = Post.all
@@ -9,6 +9,11 @@ class PostsController < ApplicationController
 
   def draft_index
     @posts = Post.where(published?: false)
+    render :index
+  end
+
+  def published_index
+    @posts = Post.where(published?: true)
     render :index
   end
 

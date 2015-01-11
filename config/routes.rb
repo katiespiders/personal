@@ -2,11 +2,12 @@ Rails.application.routes.draw do
 
   root  'posts#index'
 
-  get   'posts/drafts',   to: 'posts#draft_index',  as: :draft_posts
+  get   'posts/drafts',     to: 'posts#draft_index',      as: :draft_posts
+  get   'posts/published',  to: 'posts#published_index',  as: :published_posts
 
-  get   'signin',         to: 'sessions#new',       as: :signin_form
-  post  'signin',         to: 'sessions#create',    as: :signin
-  get   'signout',        to: 'sessions#destroy',   as: :signout
+  get   'signin',   to: 'sessions#new',      as: :signin_form
+  post  'signin',   to: 'sessions#create',   as: :signin
+  get   'signout',  to: 'sessions#destroy',  as: :signout
 
   resources :blurbs, :posts, :resources, :concepts
 
