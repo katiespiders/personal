@@ -67,7 +67,7 @@ header {
         width: 176px;
         text-align: right;
         font-size: 16px;
-        /*display: none;*/
+        display: none;
       }
 
       #admin-dropdown li {

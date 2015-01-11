@@ -13,3 +13,16 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(document).ready(function() {
+  $('#nav-admin .link-icon').bind('mouseover', openDropdown);
+  $('#nav-admin').bind('mouseout', closeDropdown);
+});
+
+function openDropdown() {
+  $(this).siblings('#admin-dropdown').css('display', 'block');
+}
+
+function closeDropdown() {
+  $(this).siblings('#admin-dropdown').css('display', 'none');
+}
