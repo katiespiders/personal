@@ -18,9 +18,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    puts "!"*80, "trying to create something"
     @post = Post.new(post_attributes)
-    puts "@"*80, "got attributes"
     if @post.save
       @post.update(published_at: @post.updated_at) if @post.published?
       redirect_to posts_path, notice: "posted #{@post.title}"
@@ -79,13 +77,15 @@ class PostsController < ApplicationController
     end
 
     def post_attributes
-      {
+      h = {
         title: post_params[:title],
         body: post_params[:body],
         resources: post_resources,
         concepts: post_concepts,
         published?: published?
       }
+      puts "^"*80, "got attributes #{h}"
+      h
     end
 
     def draft_access
