@@ -66,7 +66,9 @@ class PostsController < ApplicationController
         puts "&"*80, "looking for tags from #{params[:post][:concepts]}"
         concepts = params[:post][:concepts].reject { |c| c.empty? }
         puts "#"*80, "fixed stupid tags array, now #{concepts}"
-        concepts.collect { |c| Concept.find_by(id: c) }
+        blah = concepts.collect { |c| Concept.find_by(id: c) }
+        puts "$"*80, "found tags #{blah}"
+        blah
       else
         puts "&"*80, "no tags"
       end
