@@ -18,7 +18,9 @@ class PostsController < ApplicationController
   end
 
   def create
+    puts "!"*80, "trying to create something"
     @post = Post.new(post_attributes)
+    puts "@"*80, "got attributes"
     if @post.save
       @post.update(published_at: @post.updated_at) if @post.published?
       redirect_to posts_path, notice: "posted #{@post.title}"
@@ -51,15 +53,21 @@ class PostsController < ApplicationController
 
     def post_resources
       if params[:post][:resources]
+        puts "*"*80, "looking for resources"
         resources = params[:post][:resources].reject { |r| r.empty? }
         resources.collect { |r| Resource.find_by(id: r) }
+      else
+        puts "*"*80, "no resources"
       end
     end
 
     def post_concepts
       if params[:post][:concepts]
+        puts "&"*80, "looking for tags"
         concepts = params[:post][:concepts].reject { |c| c.empty? }
         concepts.collect { |c| Concept.find_by(id: c) }
+      else
+        puts "&"*80, "no tags"
       end
     end
 
