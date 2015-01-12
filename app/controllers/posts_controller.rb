@@ -50,13 +50,17 @@ class PostsController < ApplicationController
     end
 
     def post_resources
-      resources = params[:post][:resources].reject { |r| r.empty? }
-      resources.collect { |r| Resource.find_by(id: r) }
+      if params[:post][:resources]
+        resources = params[:post][:resources].reject { |r| r.empty? }
+        resources.collect { |r| Resource.find_by(id: r) }
+      end
     end
 
     def post_concepts
-      concepts = params[:post][:concepts].reject { |c| c.empty? }
-      concepts.collect { |c| Concept.find_by(id: c) }
+      if params[:post][:concepts]
+        concepts = params[:post][:concepts].reject { |c| c.empty? }
+        concepts.collect { |c| Concept.find_by(id: c) }
+      end
     end
 
     def published?
