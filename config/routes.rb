@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   post  'signin',   to: 'sessions#create',   as: :signin
   get   'signout',  to: 'sessions#destroy',  as: :signout
 
+  get   'sandbox',  to: 'posts#sandbox',     as: :sandbox
+
   resources :blurbs, :posts, :resources, :concepts
 
   # The priority is based upon order of creation: first created -> highest priority.
