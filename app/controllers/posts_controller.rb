@@ -51,25 +51,18 @@ class PostsController < ApplicationController
 
     def post_resources
       if params[:post][:resources]
-        puts "*"*80, "looking for resources"
         resources = params[:post][:resources].reject { |r| r.empty? }
         resources.collect { |r| Resource.find_by(id: r) }
       else
-        puts "*"*80, "no resources"
         []
       end
     end
 
     def post_concepts
       if params[:post][:concepts]
-        puts "&"*80, "looking for tags from #{params[:post][:concepts]}"
         concepts = params[:post][:concepts].reject { |c| c.empty? }
-        puts "#"*80, "fixed stupid tags array, now #{concepts}"
-        blah = concepts.collect { |c| Concept.find_by(id: c) }
-        puts "$"*80, "found tags #{blah}"
-        blah
+        concepts.collect { |c| Concept.find_by(id: c) }
       else
-        puts "&"*80, "no tags"
         []
       end
     end
@@ -79,15 +72,13 @@ class PostsController < ApplicationController
     end
 
     def post_attributes
-      h = {
+      {
         title: post_params[:title],
         body: post_params[:body],
         resources: post_resources,
         concepts: post_concepts,
         published?: published?
       }
-      puts "^"*80, "got attributes #{h}"
-      h
     end
 
     def draft_access
