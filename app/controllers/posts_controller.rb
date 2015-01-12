@@ -63,7 +63,7 @@ class PostsController < ApplicationController
 
     def post_concepts
       if params[:post][:concepts]
-        puts "&"*80, "looking for tags"
+        puts "&"*80, "looking for tags from #{params[:post][:concepts]}"
         concepts = params[:post][:concepts].reject { |c| c.empty? }
         concepts.collect { |c| Concept.find_by(id: c) }
       else
