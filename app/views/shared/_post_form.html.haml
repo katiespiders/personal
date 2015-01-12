@@ -11,15 +11,16 @@
         %td= f.text_area :body, id: 'post-field'
       - else
         %td= f.text_field :body, id: 'blurb-field'
-    %tr
-      %td= f.label :resources
-      %td= f.collection_select(:resources, Resource.all, :id, :title, {}, {multiple: true})
+    - if Resource.any?
+      %tr
+        %td= f.label :resources
+        %td= f.collection_select(:resources, Resource.all, :id, :title, {}, {multiple: true})
     %tr
       %td= link_to 'add a resource', new_resource_path
-    %tr
-    %tr
-      %td= f.label :concepts
-      %td= f.collection_select(:concepts, Concept.all, :id, :name, {}, {multiple: true})
+    - if Concept.any?
+      %tr
+        %td= f.label :concepts
+        %td= f.collection_select(:concepts, Concept.all, :id, :name, {}, {multiple: true})
     %tr
       %td= link_to 'add a concept', new_concept_path
     %tr

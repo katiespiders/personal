@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
-  before_action except: [:index, :draft_index, :show] { authorize(posts_path) }
-  before_action :find_post, except: [:index, :draft_index, :published_index, :new, :create]
+  before_action except: [:index, :show] { authorize(posts_path) }
+  before_action :find_post, only: [:show, :edit, :update, :destroy]
   before_action :draft_access, only: [:show, :edit]
 
   def index
