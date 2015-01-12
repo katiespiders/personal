@@ -56,6 +56,7 @@ class PostsController < ApplicationController
         resources.collect { |r| Resource.find_by(id: r) }
       else
         puts "*"*80, "no resources"
+        []
       end
     end
 
@@ -69,6 +70,7 @@ class PostsController < ApplicationController
         blah
       else
         puts "&"*80, "no tags"
+        []
       end
     end
 
