@@ -36,7 +36,7 @@
               <li><%= link_to 'new resource', new_resource_path %>
               <li><%= link_to 'all resources', resources_path %>
             </div>
-            - if Rails.env.development?
+            <% if Rails.env.development? %>
               <div class='menu-section'>
                 <li><%= link_to 'sandbox', sandbox_path %></li>
               </div>
@@ -59,6 +59,10 @@
 <div id='container'>
   <%= yield %>
 </div>
+
+<footer>
+  <%= link_to 'source', 'https://github.com/katiespiders/personal' %>
+</footer>
 
 </body>
 </html>
