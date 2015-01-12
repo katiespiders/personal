@@ -1,14 +1,15 @@
 = form_for obj do |f|
-  %table.table
+  %table.table#post-form
     - post = obj.class == Post
     - if post
       %tr
         %td= f.label :title
         %td= f.text_field :title, id: 'post-title-field'
     %tr
-      %td= f.label :body
+      %td{colspan: 2}= f.label :body
       - if post
-        %td= f.text_area :body, id: 'post-field'
+        %tr
+          %td{colspan: 2}= f.text_area :body, id: 'post-field'
       - else
         %td= f.text_field :body, id: 'blurb-field'
     - if Resource.any?

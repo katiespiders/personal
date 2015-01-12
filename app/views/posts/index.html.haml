@@ -1,5 +1,5 @@
 - if @posts.count == 0
-  %h1 posts go here
+  posts go here
 - else
   - Post.sort_desc(@posts).each do |post|
     = preview(post)
